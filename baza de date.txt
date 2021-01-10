@@ -1,0 +1,6 @@
+user - > pozitie (one to many) ok impl
+candidat - > pozitie (many to many) ok impl
+comentariu - > pozitie (many to one) ok impl 
+comentariu - > candidat (many to one) ok impl
+comentariu - > user(many to one) ok impl 
+role-> user(one to many) ok impl 
