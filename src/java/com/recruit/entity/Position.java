@@ -45,6 +45,19 @@ public class Position implements Serializable {
     public Position() {
     }
 
+    public Position(String nume, String nr_persoane, String department, String cerinte, String responsabilitati, String proiect, String opened, String closed) {
+        this.nume = nume;
+        this.nr_persoane = nr_persoane;
+        this.department = department;
+        this.cerinte = cerinte;
+        this.responsabilitati = responsabilitati;
+        this.proiect = proiect;
+        this.opened = opened;
+        this.closed = closed;
+    }
+
+    
+    
     public Integer getIdposition() {
         return idposition;
     }

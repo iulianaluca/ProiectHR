@@ -30,6 +30,13 @@ public class PositionComment implements Serializable {
     
     public PositionComment() {
     }
+
+    public PositionComment(Boolean deleted, String comment) {
+        this.deleted = deleted;
+        this.comment = comment;
+    }
+    
+    
     
     public Integer getId() {
         return id;
