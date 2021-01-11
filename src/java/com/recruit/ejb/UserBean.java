@@ -34,11 +34,11 @@ public class UserBean {
         }
     }
     
-    public void createUser(String nume, String prenume, Integer telefon, Integer mobil, String email, String username, String functie, String descriere) {
+    public void createUser(String nume, String prenume, Integer telefon, Integer mobil, String email, String username, String functie, String descriere, Integer id_rol) {
         LOG.info("createUser");
         try {
             User user=new User(nume,prenume,telefon,mobil,email,username,functie,descriere);
-            Role role=em.find(Role.class, 1);
+            Role role=em.find(Role.class, id_rol);
             role.getUser().add(user);
             user.setUser_role(role);
             
