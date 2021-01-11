@@ -31,10 +31,10 @@ public class User implements Serializable {
     private String descriere;
     
     @OneToMany(mappedBy="user_comm")
-    private Collection<UserComment> comment;
+    private Collection<UserComment> user_comment;
     
     @OneToMany(mappedBy="user_pos")
-    private Collection<Position> position;
+    private Collection<Position> user_position;
     
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="USER_ROLE")
@@ -43,6 +43,18 @@ public class User implements Serializable {
     
     public User() {
     }
+
+    public User(String nume, String prenume, Integer telefon, Integer mobil, String email, String username, String functie, String descriere) {
+        this.nume = nume;
+        this.prenume = prenume;
+        this.telefon = telefon;
+        this.mobil = mobil;
+        this.email = email;
+        this.username = username;
+        this.functie = functie;
+        this.descriere=descriere;
+    }
+    
 
     public Integer getId() {
         return id;
@@ -116,20 +128,20 @@ public class User implements Serializable {
         this.descriere = descriere;
     }
 
-    public Collection<UserComment> getComment() {
-        return comment;
+    public Collection<UserComment> getUser_comment() {
+        return user_comment;
     }
 
-    public void setComment(Collection<UserComment> comment) {
-        this.comment = comment;
+    public void setUser_comment(Collection<UserComment> user_comment) {
+        this.user_comment = user_comment;
     }
 
-    public Collection<Position> getPosition() {
-        return position;
+    public Collection<Position> getUser_position() {
+        return user_position;
     }
 
-    public void setPosition(Collection<Position> position) {
-        this.position = position;
+    public void setUser_position(Collection<Position> user_position) {
+        this.user_position = user_position;
     }
 
     public Role getUser_role() {
@@ -139,8 +151,7 @@ public class User implements Serializable {
     public void setUser_role(Role user_role) {
         this.user_role = user_role;
     }
-    
-    
+       
 
     @Override
     public int hashCode() {

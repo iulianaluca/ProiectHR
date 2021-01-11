@@ -17,7 +17,7 @@ public class UserComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Boolean deleted;
     private String comment;
@@ -28,6 +28,11 @@ public class UserComment implements Serializable {
 
     
     public UserComment() {
+    }
+
+    public UserComment(Boolean deleted, String comment) {
+        this.deleted = deleted;
+        this.comment = comment;
     }
 
     public Integer getId() {

@@ -1,10 +1,5 @@
-<%-- 
-    Document   : list-user
-    Created on : Jan 10, 2021, 4:42:24 PM
-    Author     : PC
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix ="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +7,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <table border="1">
+            <c:forEach var="users" items="${user}" varStatus="status">
+                <tr>
+                    <td>${users.id}</td>
+                    <td>${users.nume}</td>
+                    <td>${users.prenume}</td>
+                    <td>${users.telefon}</td>
+                    <td>${users.user_role}</td>
+                </tr>           
+            </c:forEach>
+        </table>
     </body>
 </html>
