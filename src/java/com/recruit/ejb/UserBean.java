@@ -67,10 +67,45 @@ public class UserBean {
     private List<UserDetails> copyUsersToDetails(List<User> users) {
          List<UserDetails> detailsList = new ArrayList<>();
         for (User user : users) {
-            UserDetails userDetails = new UserDetails(user.getId(),user.getNume(),user.getPrenume(),user.getTelefon(),user.getMobil(),user.getEmail(),user.getUsername(),user.getFunctie(),user.getDescriere(),user.getUser_role().getRol());
+            UserDetails userDetails = new UserDetails(user.getId(),user.getNume(),user.getPrenume(),user.getTelefon(),user.getMobil(),user.getEmail(),user.getFunctie(),user.getDescriere(),user.getUser_role().getRol());
             detailsList.add(userDetails);
         }
         return detailsList;
+    }
+    
+    public void editUser(Integer id, String nume, String prenume, Integer telefon, Integer mobil, String email, String functie, String descriere){
+        LOG.info("editUser");
+        try{
+            User user=em.find(User.class, id);
+            user.setNume(nume);
+            user.setPrenume(prenume);
+            user.setTelefon(telefon);
+            user.setMobil(mobil);
+            user.setEmail(email);
+            user.setFunctie(functie);
+            user.setDescriere(descriere);
+            
+        }
+        catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+    
+    public void deleteUser(Integer id){
+        LOG.info("edeleteUser");
+        try{
+            User user=em.find(User.class, id);
+            em.remove(user);
+        }
+        catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+    
+    public UserDetails findById(Integer id){
+        User user=em.find(User.class, id);
+        return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getTelefon(), user.getMobil(), user.getEmail(), user.getFunctie(), user.getDescriere(), user.getUser_role().getRol());
+    
     }
     
 }

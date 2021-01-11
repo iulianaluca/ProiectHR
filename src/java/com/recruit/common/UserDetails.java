@@ -16,14 +16,13 @@ public class UserDetails implements java.io.Serializable{
     public UserDetails() {
     }
 
-    public UserDetails(Integer id, String nume, String prenume, Integer telefon, Integer mobil, String email, String username, String functie, String descriere, String user_role) {
+    public UserDetails(Integer id, String nume, String prenume, Integer telefon, Integer mobil, String email, String functie, String descriere, String user_role) {
         this.id = id;
         this.nume = nume;
         this.prenume = prenume;
         this.telefon = telefon;
         this.mobil = mobil;
         this.email = email;
-        this.username = username;
         this.functie = functie;
         this.descriere = descriere;
         this.user_role = user_role;

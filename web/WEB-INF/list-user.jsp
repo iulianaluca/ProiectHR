@@ -10,13 +10,14 @@
         <table border="1">
             <c:forEach var="users" items="${user}" varStatus="status">
                 <tr>
-                    <td>${users.id}</td>
+                    
                     <td>${users.nume}</td>
                     <td>${users.prenume}</td>
                     <td>${users.telefon}</td>
                     <td>${users.user_role}</td>
+                    <td><a href="${pageContext.request.contextPath}/EditUserServlet?id=${users.id}" role="button"><input type="button" name="update" value="Update" ></a> </td>
                 </tr>           
-            </c:forEach>
+            </c:forEach>                     
         </table>
     </body>
 </html>

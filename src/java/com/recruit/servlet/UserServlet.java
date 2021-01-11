@@ -22,10 +22,12 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //user.createUser("Adi", "Ionescu", 072753453, 0340312352, "nelu.tataru@hoo.com", "ionel", "ceva", "mai tare");
+       
         //user.createComment("alt test", 1);
         List<UserDetails> users = user.getAllUsers();
         request.setAttribute("user", users);
 
         request.getRequestDispatcher("WEB-INF/list-user.jsp").forward(request, response);
+        //user.deleteUser(3);
     }
 }
