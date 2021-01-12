@@ -24,6 +24,13 @@ public class CandidateComment implements Serializable {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="CANDIDATE_KEY")
     private Candidate candidate_comm;
+
+    public CandidateComment(boolean b, String comment) {
+       this.deleted=b;
+       this.comment=comment;
+    }
+
+  
     
     public Integer getId() {
         return id;

@@ -38,10 +38,33 @@ public class Candidate implements Serializable {
     @JoinColumn(name = "CANDIDATE_IDCANDIDATE", referencedColumnName = "IDCANDIDATE")}, inverseJoinColumns = {
     @JoinColumn(name = "POSITION_IDPOSITION", referencedColumnName = "IDPOSITION")})
     private Collection<Position> positionCollection;
+    
+    
 
     public Candidate() {
     }
+
+    public Candidate(String nume, String prenume, String telefon, String email, String adresa, String cv, Boolean relocare, Boolean acceptat) {
+        this.nume = nume;
+        this.prenume = prenume;
+        this.telefon = telefon;
+        this.email = email;
+        this.adresa = adresa;
+        this.cv = cv;
+        this.relocare = relocare;
+        this.acceptat = acceptat;
+    }
+
+    public String getCv() {
+        return cv;
+    }
+
+    public void setCv(String cv) {
+        this.cv = cv;
+    }
     
+    
+   
 
     public Integer getIdcandidate() {
         return idcandidate;
@@ -147,5 +170,7 @@ public class Candidate implements Serializable {
     public String toString() {
         return "com.recruit.entity.Candidate[ id=" + idcandidate + " ]";
     }
+
+ 
     
 }
