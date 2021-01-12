@@ -46,7 +46,7 @@ public class PositionBean {
         LOG.info("createPosition");
         try {
             Position position=new Position(nume,nr_persoane,department,cerinte,responsabilitati,proiect,opened,closed); // test1
-            User user=em.find(User.class, 4); // 
+            User user=em.find(User.class, 1); // 
             user.getUser_position().add(position);
             position.setUser_pos(user);
             
