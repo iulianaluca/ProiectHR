@@ -36,7 +36,7 @@ public class AddUserServlet extends HttpServlet {
         String descriere=request.getParameter("descriere");
         Integer rol=Integer.parseInt(request.getParameter("rol"));
         
-        userBean.createUser(nume, prenume, telefon, mobil, "username", email, functie, descriere, rol);
+        userBean.createUser(nume, prenume, telefon, mobil, email, "username", functie, descriere, rol);
         
         response.sendRedirect(request.getContextPath()+"/UserServlet");
     }
