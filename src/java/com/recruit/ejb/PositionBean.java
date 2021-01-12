@@ -62,7 +62,7 @@ public class PositionBean {
         try {
             PositionComment positioncomment=new PositionComment(false, comment);
             Position position=em.find(Position.class,idposition);
-            position.getPosition().add(positioncomment);
+            position.getPosition_comment().add(positioncomment);
             positioncomment.setPosition_comm(position);
   
             

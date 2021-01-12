@@ -37,7 +37,7 @@ public class Position implements Serializable {
     private User user_pos;
     
     @OneToMany(mappedBy="position_comm")
-    private Collection<PositionComment> position;
+    private Collection<PositionComment> position_comment;
     
     @ManyToMany(mappedBy = "positionCollection")
     private Collection<Candidate> candidateCollection;
@@ -138,12 +138,12 @@ public class Position implements Serializable {
         this.user_pos = user_pos;
     }
 
-    public Collection<PositionComment> getPosition() {
-        return position;
+    public Collection<PositionComment> getPosition_comment() {
+        return position_comment;
     }
 
-    public void setPosition(Collection<PositionComment> position) {
-        this.position = position;
+    public void setPosition_comment(Collection<PositionComment> position_comment) {
+        this.position_comment = position_comment;
     }
 
     public Collection<Candidate> getCandidateCollection() {

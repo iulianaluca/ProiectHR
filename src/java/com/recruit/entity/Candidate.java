@@ -30,7 +30,7 @@ public class Candidate implements Serializable {
     private Boolean acceptat;
     
     @OneToMany(mappedBy = "candidate_comm")
-    private Collection<CandidateComment> candidate;
+    private Collection<CandidateComment> candidate_comment;
     
     @ManyToMany
     @JoinTable(name = "POSITION_CANDIDATE", joinColumns = {
@@ -106,12 +106,12 @@ public class Candidate implements Serializable {
         this.acceptat = acceptat;
     }
 
-    public Collection<CandidateComment> getCandidate() {
-        return candidate;
+    public Collection<CandidateComment> getCandidate_comment() {
+        return candidate_comment;
     }
 
-    public void setCandidate(Collection<CandidateComment> candidate) {
-        this.candidate = candidate;
+    public void setCandidate_comment(Collection<CandidateComment> candidate_comment) {
+        this.candidate_comment = candidate_comment;
     }
 
     public Collection<Position> getPositionCollection() {
