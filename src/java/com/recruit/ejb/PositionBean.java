@@ -42,11 +42,11 @@ public class PositionBean {
         }
     }
     
-     public void createPosition(String nume, String nr_persoane, String department, String cerinte, String responsabilitati, String proiect, String opened, String closed) {
+     public void createPosition(String nume, String nr_persoane, String department, String cerinte, String responsabilitati, String proiect, String opened, String closed, Integer user_pos) {
         LOG.info("createPosition");
         try {
             Position position=new Position(nume,nr_persoane,department,cerinte,responsabilitati,proiect,opened,closed); // test1
-            User user=em.find(User.class, 1); // 
+            User user=em.find(User.class, user_pos); // 
             user.getUser_position().add(position);
             position.setUser_pos(user);
             

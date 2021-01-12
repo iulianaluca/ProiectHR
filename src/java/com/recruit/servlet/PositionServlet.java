@@ -19,16 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 public class PositionServlet extends HttpServlet {
 
      @Inject
-    PositionBean position;
+    PositionBean positionBean;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //position.createPosition("test2", "test2", "test2", "test2", "test2", "test2", "test2", "test2");
-        //user.createComment("alt test", 1);
-        //position.deletePosition(8);
-        //position.editPosition(1, "test2", "test2", "test2", "test2", "test2", "test2", "test2", "test2");
-        List<PositionDetails> positions = position.getAllPositions();
+        List<PositionDetails> positions = positionBean.getAllPositions();
         request.setAttribute("position", positions);
 
         request.getRequestDispatcher("WEB-INF/list-position.jsp").forward(request, response);
