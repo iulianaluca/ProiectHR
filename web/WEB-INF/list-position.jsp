@@ -37,6 +37,7 @@
                     <td>${positions.user_pos}</td>
                     <td><a href="${pageContext.request.contextPath}/EditPositionServlet?id=${positions.idposition}" role="button"><input type="button" name="update" value="Update" ></a> </td>
                     <td><a href="${pageContext.request.contextPath}/DeletePositionServlet?id=${positions.idposition}" role="button"><input type="button" name="delete" value="Delete" ></a> </td>
+                    <td><a href="${pageContext.request.contextPath}/AddCandidateToPosition?idposition=${positions.idposition}" role="button"><input type="button" value="Add Candidate" ></a> </td>
                 </tr>           
             </c:forEach>
         </table>

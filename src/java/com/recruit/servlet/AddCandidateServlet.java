@@ -28,8 +28,7 @@ public class AddCandidateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        candidateBean.assignCandidateToPosition(1, 2);
-        //request.getRequestDispatcher("/WEB-INF/create-candidate.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/create-candidate.jsp").forward(request, response);
     }
 
     
@@ -39,16 +38,14 @@ public class AddCandidateServlet extends HttpServlet {
         String nume = request.getParameter("nume");
         String prenume = request.getParameter("prenume");
         String telefon =request.getParameter("telefon");
-        String adresa = request.getParameter("mobil");
+        String adresa = request.getParameter("adresa");
         String email=request.getParameter("email");
         String cv=request.getParameter("cv");
       
         Boolean relocare= true;
         Boolean acceptat= true;
         
-        // public void createCandidate(boolean acceptat, String adresa, String email, String nume, String prenume,String cv, boolean relocare, String telefon) {
         candidateBean.createCandidate(acceptat, adresa, email, nume, prenume, cv, relocare, telefon);
-        
         response.sendRedirect(request.getContextPath()+"/CandidateServlet");
     }
 

@@ -6,6 +6,7 @@ import com.recruit.entity.CandidateComment;
 import com.recruit.entity.Position;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
@@ -37,7 +38,7 @@ public class CandidateBean {
      public void createCandidate(boolean acceptat, String adresa, String email, String nume, String prenume,String cv, boolean relocare, String telefon) {
         LOG.info("createCandidate");
         try {
-            Candidate candidate=new Candidate("test", "test", "test","test", "test", "test", true,true);
+            Candidate candidate=new Candidate(nume,prenume,telefon,email,adresa,cv,relocare,acceptat);
             em.persist(candidate);                             
         } catch (Exception ex) {
             throw new EJBException(ex);
@@ -45,8 +46,8 @@ public class CandidateBean {
     }
      
      public void assignCandidateToPosition(Integer idCandidate, Integer idPosition){
-         Position position=em.find(Position.class, 1);
-         Candidate candidate=em.find(Candidate.class,3);
+         Position position=em.find(Position.class, idPosition);
+         Candidate candidate=em.find(Candidate.class,idCandidate);
          candidate.getPositionCollection().add(position);
          position.getCandidateCollection().add(candidate); 
      }
@@ -67,7 +68,7 @@ public class CandidateBean {
         }
     }
      
-     public void editCandidate(Integer idcandidate,boolean acceptat, String adresa, String email, String nume, String prenume, boolean relocare, String telefon){
+     public void editCandidate(Integer idcandidate,boolean acceptat, String adresa, String email, String nume, String prenume, boolean relocare, String telefon, String cv){
         LOG.info("editPosition");
         try{
             Candidate candidate=em.find(Candidate.class, idcandidate);
@@ -77,6 +78,7 @@ public class CandidateBean {
             candidate.setAdresa(adresa);
             candidate.setRelocare(relocare);
             candidate.setTelefon(telefon);
+            candidate.setCv(cv);
             
             
         }
@@ -90,7 +92,12 @@ public class CandidateBean {
         try{
             Candidate candidate=em.find(Candidate.class, idcandidate);
             Collection<Position> positions=candidate.getPositionCollection();
-            positions.remove(candidate);
+            Iterator<Position> i = positions.iterator();
+            while (i.hasNext()) {
+                Position position = i.next();
+                position.getCandidateCollection().remove(candidate);
+            }
+            
             em.remove(candidate);
             
         }
@@ -111,6 +118,7 @@ public class CandidateBean {
     public CandidateDetails findById(Integer idcandidate){
         Candidate candidate=em.find(Candidate.class, idcandidate);
         return new CandidateDetails(candidate.getIdcandidate(),candidate.getAcceptat(), candidate.getAdresa(), candidate.getEmail(), candidate.getNume(), candidate.getPrenume(), candidate.getCv(), candidate.getRelocare(), candidate.getTelefon());
-    
+        
     }
+
 }
