@@ -4,9 +4,6 @@ import com.recruit.common.CandidateDetails;
 import com.recruit.entity.Candidate;
 import com.recruit.entity.CandidateComment;
 import com.recruit.entity.Position;
-import com.recruit.entity.Role;
-import com.recruit.entity.User;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,19 +13,18 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import static org.jboss.weld.logging.BeanLogger.LOG;
 
 
 @Stateless
 public class CandidateBean {
-    
-      @PersistenceContext
-    private EntityManager em;
+
+    @PersistenceContext
+   private EntityManager em;
 
    public List<CandidateDetails> getAllCandidates() {
         LOG.info("getAllCandidates");
         try {            
-            Query query = em.createQuery("SELECT c FROM Candidates c");          
+            Query query = em.createQuery("SELECT c FROM Candidate c");          
             List<Candidate> candidates = (List<Candidate>) query.getResultList();
             return copyCandidatesToDetails(candidates);
             
@@ -36,24 +32,24 @@ public class CandidateBean {
             throw new EJBException(ex);
         }
     }
+    private static final Logger LOG = Logger.getLogger(CandidateBean.class.getName());
     
      public void createCandidate(boolean acceptat, String adresa, String email, String nume, String prenume,String cv, boolean relocare, String telefon) {
         LOG.info("createCandidate");
         try {
-            
-            Candidate candidate=new Candidate(nume, prenume, telefon,email, adresa, cv, relocare,acceptat); 
-            Position position=em.find(Position.class, 1);
-            System.out.println(position.getIdposition());
-            position.getCandidateCollection().add(candidate);
-            candidate.getPositionCollection().add(position);
-           
-           
-            em.persist(candidate);
-            
+            Candidate candidate=new Candidate("test", "test", "test","test", "test", "test", true,true);
+            em.persist(candidate);                             
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
+     
+     public void assignCandidateToPosition(Integer idCandidate, Integer idPosition){
+         Position position=em.find(Position.class, 1);
+         Candidate candidate=em.find(Candidate.class,3);
+         candidate.getPositionCollection().add(position);
+         position.getCandidateCollection().add(candidate); 
+     }
      
      public void createCandidateComment(String comment, Integer idcandidate) {
         LOG.info("createCandidateComment");

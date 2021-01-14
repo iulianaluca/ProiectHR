@@ -2,7 +2,9 @@ package com.recruit.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +21,7 @@ public class Candidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idcandidate;
     private String nume;
     private String prenume;
@@ -33,7 +35,7 @@ public class Candidate implements Serializable {
     @OneToMany(mappedBy = "candidate_comm")
     private Collection<CandidateComment> candidate_comment;
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "POSITION_CANDIDATE", joinColumns = {
     @JoinColumn(name = "CANDIDATE_IDCANDIDATE", referencedColumnName = "IDCANDIDATE")}, inverseJoinColumns = {
     @JoinColumn(name = "POSITION_IDPOSITION", referencedColumnName = "IDPOSITION")})
@@ -141,6 +143,7 @@ public class Candidate implements Serializable {
     public Collection<Position> getPositionCollection() {
         return positionCollection;
     }
+    
 
     public void setPositionCollection(Collection<Position> positionCollection) {
         this.positionCollection = positionCollection;
