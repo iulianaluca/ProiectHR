@@ -7,6 +7,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <a href="${pageContext.request.contextPath}/UserServlet"> Users </a>
+        <a href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+        <a href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>
         <a href="${pageContext.request.contextPath}/AddCandidateServlet" role="button"><input type="button" name="add" value="Add Candidate" ></a>
         <table border="1">
             <c:forEach var="candidates" items="${candidate}" varStatus="status">

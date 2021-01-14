@@ -11,6 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        
+        <a href="${pageContext.request.contextPath}/UserServlet"> Users </a>
+        <a href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+        <a href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>
+        
     </body>
 </html>
