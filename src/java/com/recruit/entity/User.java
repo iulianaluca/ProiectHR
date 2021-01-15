@@ -29,6 +29,7 @@ public class User implements Serializable {
     private String username;
     private String functie;
     private String descriere;
+    private String password;
     
     @OneToMany(mappedBy="user_comm")
     private Collection<UserComment> user_comment;
