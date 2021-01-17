@@ -11,12 +11,11 @@ public class UserDetails implements java.io.Serializable{
     private String username;
     private String functie;
     private String descriere;
-    private String user_role;
 
     public UserDetails() {
     }
 
-    public UserDetails(Integer id, String nume, String prenume, Integer telefon, Integer mobil, String email, String functie, String descriere, String user_role) {
+    public UserDetails(Integer id, String nume, String prenume, Integer telefon, Integer mobil, String email, String functie, String descriere) {
         this.id = id;
         this.nume = nume;
         this.prenume = prenume;
@@ -25,7 +24,6 @@ public class UserDetails implements java.io.Serializable{
         this.email = email;
         this.functie = functie;
         this.descriere = descriere;
-        this.user_role = user_role;
     }
 
     public Integer getId() {
@@ -62,10 +60,6 @@ public class UserDetails implements java.io.Serializable{
 
     public String getDescriere() {
         return descriere;
-    }
-
-    public String getUser_role() {
-        return user_role;
     }
     
                                           

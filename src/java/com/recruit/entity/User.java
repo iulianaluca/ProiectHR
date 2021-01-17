@@ -45,7 +45,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String nume, String prenume, Integer telefon, Integer mobil, String email, String username, String functie, String descriere) {
+    public User(String nume, String prenume, Integer telefon, Integer mobil, String email, String username,String password, String functie, String descriere) {
         this.nume = nume;
         this.prenume = prenume;
         this.telefon = telefon;
@@ -54,6 +54,7 @@ public class User implements Serializable {
         this.username = username;
         this.functie = functie;
         this.descriere=descriere;
+        this.password=password;
     }
     
 
@@ -111,6 +112,14 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFunctie() {

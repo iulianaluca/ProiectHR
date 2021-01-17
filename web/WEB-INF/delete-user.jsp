@@ -1,9 +1,3 @@
-<%-- 
-    Document   : edit-user
-    Created on : Jan 11, 2021, 6:21:28 PM
-    Author     : Iuliana
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

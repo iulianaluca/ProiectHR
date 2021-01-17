@@ -20,7 +20,7 @@ public class EditUserServlet extends HttpServlet {
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+        
         int userID=Integer.parseInt(request.getParameter("id"));
         UserDetails userDetails=userBean.findById(userID);
         

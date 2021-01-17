@@ -31,30 +31,30 @@
                         <label>Email: </label>
                         <input type="text" name="email"/></br>
                         
-                        <label>Functie: </label>
-                        <input type="text" name="functie"/></br>
+                        <label>Parola: </label>
+                        <input type="text" name="password"/></br>
                         
                         <label>Descriere: </label>
                         <input type="text" name="descriere"/></br>
                         
                         <label>Rol: </label>
-                        <select name="rol">
-                            <option value="1">
+                        <select name="functie">
+                            <option value="DIRECTOR GENERAL">
                                 Director general
                             </option>
-                            <option value="2">
+                            <option value="DIRECTOR DEPARTAMENT">
                                 Director de departament
                             </option>
-                            <option value="3">
+                            <option value="DIRECTOR HR">
                                 Director de HR 
                             </option>
-                            <option value="4">
+                            <option value="RECRUITER">
                                 Recruiter 
                             </option>
-                            <option value="5">
+                            <option value="ADMINISTRATOR">
                                 Administrator
                             </option>
-                            <option value="6">
+                            <option value="VIEWER">
                                 Viewer
                             </option>
                             
