@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.recruit.servlet;
 
 import java.io.IOException;
@@ -8,14 +13,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author krew
+ */
+@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
+public class Logout extends HttpServlet {
 
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+  
     
+
+  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+        request.logout();
+        response.sendRedirect(request.getContextPath()+"/UserServlet");
+       
     }
 
    
@@ -25,5 +39,6 @@ public class Login extends HttpServlet {
         
     }
 
+   
 
 }

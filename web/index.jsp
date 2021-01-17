@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        
-        <a href="${pageContext.request.contextPath}/UserServlet"> Users </a>
-        <a href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
-        <a href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>
-        
-    </body>
-</html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:pageTemplate pageTitle="ProiectHR">
+    
+    <form action="j_security_check" method="POST">
+
+                        <label>Username: </label>
+                        <input type="text" name="j_username"/></br>
+
+                        <label>Parola </label>
+                        <input type="password" name="j_password"/></br>
+                        <button type="submit">Login</button>
+    </form>
+    
+</t:pageTemplate>

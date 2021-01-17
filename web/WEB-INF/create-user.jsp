@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +19,7 @@
              <form action="${pageContext.request.contextPath}/AddUserServlet" method="POST">
 
                         <label>Nume: </label>
-                        <input type="text" name="nume"/></br>
+                        <input type="text" name="nume" minlength="5"/></br>
 
                         <label>Prenume: </label>
                         <input type="text" name="prenume"/></br>
@@ -29,10 +31,10 @@
                         <input type="text" name="mobil"/></br>
                     
                         <label>Email: </label>
-                        <input type="text" name="email"/></br>
+                        <input type="email" name="email"/></br>
                         
                         <label>Parola: </label>
-                        <input type="text" name="password"/></br>
+                        <input type="password" name="password"/></br>
                         
                         <label>Descriere: </label>
                         <input type="text" name="descriere"/></br>

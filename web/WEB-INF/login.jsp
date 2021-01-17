@@ -18,7 +18,7 @@
                         <input type="text" name="j_username"/></br>
 
                         <label>Parola </label>
-                        <input type="text" name="j_password"/></br>
+                        <input type="password" name="j_password"/></br>
                         <button type="submit">Login</button>
          </form>
     </body>
