@@ -41,10 +41,7 @@
                         
                         <label>Closed: </label>
                         <input type="text" name="closed"/></br>
-                        
-                        <label>User_pos: </label>
-                        <input type="text" name="user_pos"/></br>
-                        
+                        <input type="hidden" name="username" value="${pageContext.request.getRemoteUser()}"/></br>
                         <input type="submit" name="OK" value="OK">
              </form>
     </body>

@@ -1,6 +1,7 @@
 package com.recruit.servlet;
 
 import com.recruit.ejb.PositionBean;
+import com.recruit.ejb.UserBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.inject.Inject;
@@ -15,6 +16,8 @@ public class AddPositionServlet extends HttpServlet {
 
     @Inject
     PositionBean positionBean;
+    @Inject
+    UserBean userBean;
     
     
     @Override
@@ -39,9 +42,12 @@ public class AddPositionServlet extends HttpServlet {
             String proiect = request.getParameter("proiect");
             String opened = request.getParameter("opened");
             String closed = request.getParameter("closed");
-            Integer user_pos = Integer.parseInt(request.getParameter("user_pos"));
+            String username=request.getParameter("username");
+            Integer user_id=userBean.findByUsername(username);
+            System.out.println(username);
+            System.out.println(user_id);
         
-            positionBean.createPosition(nume,nr_persoane , department, cerinte, responsabilitati, proiect, opened,closed,user_pos);
+            positionBean.createPosition(nume,nr_persoane , department, cerinte, responsabilitati, proiect, opened,closed,user_id);
             
             response.sendRedirect(request.getContextPath()+"/PositionServlet");
         

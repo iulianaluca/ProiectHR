@@ -130,5 +130,13 @@ public class UserBean {
         return new UserDetails(user.getId(), user.getNume(), user.getPrenume(), user.getTelefon(), user.getMobil(), user.getEmail(), user.getFunctie(), user.getDescriere());
     
     }
+
+    public Integer findByUsername(String username) {
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.username=:user");
+        query.setParameter("user", username);
+        User us=(User)query.getSingleResult();
+
+        return us.getId();
+    }
     
 }
