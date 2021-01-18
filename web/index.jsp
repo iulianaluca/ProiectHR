@@ -3,12 +3,5 @@
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="ProiectHR">
-    <c:choose>
-        <c:when test="${pageContext.request.getRemoteUser()==null}">
-            <a href="${pageContext.request.contextPath}/Login"> Login </a>
-        </c:when>
-        <c:otherwise>
-            Salut ${pageContext.request.getRemoteUser()} !
-        </c:otherwise>
-    </c:choose>
+    <h1>234/3</h1>
 </t:pageTemplate>

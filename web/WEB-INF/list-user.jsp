@@ -10,10 +10,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="${pageContext.request.contextPath}/UserServlet"> Users </a>
-        <a href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
-        <a href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>
-        <a href="${pageContext.request.contextPath}/AddUserServlet" role="button"><input type="button" name="add" value="Add User" ></a>
+                <a href="${pageContext.request.contextPath}/AddUserServlet" role="button"><input type="button" name="add" value="Add User" ></a>
         <table border="1">
             <c:forEach var="users" items="${user}" varStatus="status">
                 <tr>
