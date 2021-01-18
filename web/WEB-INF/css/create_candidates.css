@@ -1,0 +1,30 @@
+.candidate {
+    text-align: center;
+}
+
+.candidate__update {
+    text-align: center;
+}
+
+.add__candidate {
+    text-align: center;
+}
+
+.edit__candidate {
+    text-align: center;
+}
+
+.delete__candidate {
+    text-align: center;
+}
+
+.button__add {
+    margin-top: 10px;
+    margin-left: 43%;
+    background-color: grey;
+    border-radius: 5px;
+    width:14%;
+    text-align: center;
+}
+
+

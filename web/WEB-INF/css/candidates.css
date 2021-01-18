@@ -1,0 +1,47 @@
+.candidates__col {
+    color: red;
+    border: 3px solid black;
+    text-align: center;
+}
+
+.button__add {
+    background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 8px;
+ text-color: red;
+ border-radius:5px;
+  
+}
+
+.button__update {
+    background-color: grey;
+    color: black;
+    border-radius: 5px;
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.button__delete {
+    color: black;
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.table__col {
+    border: 3px solid black;
+    width: 100%;
+    padding:10px;
+}
+th, td {
+    border: 3px solid black;
+}
+th {
+    padding: 5px;
+    padding-right: 10px;
+}
