@@ -3,5 +3,7 @@
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="ProiectHR">
-    <h1>234/3</h1>
+    <c:if test="${pageContext.request.getRemoteUser()!=null}">
+        <p>Salut ${pageContext.request.getRemoteUser()} !</p>
+    </c:if>
 </t:pageTemplate>

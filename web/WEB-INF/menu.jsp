@@ -8,11 +8,33 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav">
-        <a class="nav-link text-dark" href="${pageContext.request.contextPath}/UserServlet"> Users </a>
-        <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
-        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
-            <a class="nav-link text-dark" href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>
-        </c:if>
+        <c:choose>
+            <c:when test="${pageContext.request.isUserInRole('DirectorGeneralRole')}">
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/UserServlet"> Users </a>
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>   
+            </c:when>
+                
+            <c:when test="${pageContext.request.isUserInRole('AdminRole')}">
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/UserServlet"> Users </a>
+            </c:when>
+                
+            <c:when test="${pageContext.request.isUserInRole('RecruiterRole')}">
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/CandidateServlet"> Candidates </a>   
+            </c:when>
+                
+            <c:when test="${pageContext.request.isUserInRole('DirectorHrRole')}">
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+            </c:when>
+                
+            <c:when test="${pageContext.request.isUserInRole('DirectorDepartamentRole')}">
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+            </c:when>
+            <c:when test="${pageContext.request.isUserInRole('ViewerRole')}">
+                <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PositionServlet"> Positions </a>
+            </c:when>
+        </c:choose>
     </ul>
     
         <ul class="navbar-nav ml-auto">
@@ -22,7 +44,6 @@
                     <a class="nav-link text-dark" href="${pageContext.request.contextPath}/Login"> Login </a>
                 </c:when>
                 <c:otherwise>
-                    Salut ${pageContext.request.getRemoteUser()} !
                     <a class="nav-link text-dark" href="${pageContext.request.contextPath}/Logout"> Logout </a>
                 </c:otherwise>
             </c:choose>

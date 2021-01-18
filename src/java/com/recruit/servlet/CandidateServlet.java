@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@DeclareRoles(("AdminRole"))
+@DeclareRoles({"DirectorGeneralRole", "RecruiterRole"})
 @ServletSecurity(
-        value = @HttpConstraint(rolesAllowed = {"AdminRole"})
+        value = @HttpConstraint(rolesAllowed = {"DirectorGeneralRole", "RecruiterRole"})
 )
 
 @WebServlet(name = "CandidateServlet", urlPatterns = {"/CandidateServlet"})
