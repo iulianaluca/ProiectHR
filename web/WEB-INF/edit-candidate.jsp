@@ -12,8 +12,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Edit</title>
-        <link href="style.css" rel="stylesheet">
+        <title>Edit candidate</title>
+       
     </head>
     <body>
         <h1 class="edit__candidate">EDIT CANDIDATE</h1>

@@ -7,39 +7,40 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<style><%@include file = "/WEB-INF/css/create_candidates.css" %></style>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add</title>
-        <link href="style.css" rel="stylesheet">
+        <title>Add user</title>
+       
     </head>
     <body>
-        <p>Add user</p>
+         <h1 class="add__candidate">ADD USER</h1>
              <form action="${pageContext.request.contextPath}/AddUserServlet" method="POST">
-
-                        <label>Nume: </label>
+                  <div class="candidate">
+                 <label>Nume</label></br>
                         <input type="text" name="nume" minlength="5"/></br>
 
-                        <label>Prenume: </label>
+                        <label>Prenume</label></br>
                         <input type="text" name="prenume"/></br>
 
-                        <label>Telefon: </label>
+                        <label>Telefon</label></br>
                         <input type="text" name="telefon"/></br>
                         
-                        <label>Mobil: </label>
+                        <label>Mobil</label></br>
                         <input type="text" name="mobil"/></br>
                     
-                        <label>Email: </label>
+                        <label>Email</label></br>
                         <input type="email" name="email"/></br>
                         
-                        <label>Parola: </label>
+                        <label>Parola</label></br>
                         <input type="password" name="password"/></br>
                         
-                        <label>Descriere: </label>
+                        <label>Descriere</label></br>
                         <input type="text" name="descriere"/></br>
                         
-                        <label>Rol: </label>
+                        <label>Rol</label></br>
                         <select name="functie">
                             <option value="DIRECTOR GENERAL">
                                 Director general
@@ -61,8 +62,10 @@
                             </option>
                             
                         </select>
+                         </div>                       
+                      
                         
-                        <input type="submit" name="OK" value="OK">
+                 <button class="button__add">ADD </button>
              </form>
     </body>
 </html>

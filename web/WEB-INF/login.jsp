@@ -17,13 +17,11 @@
     align-items: center;
     position: relative;
 }
-
 #cover-caption {
     width: 100%;
     position: relative;
     z-index: 1;
 }
-
 /* only used for background overlay not needed for centering */
 form:before {
     content: '';

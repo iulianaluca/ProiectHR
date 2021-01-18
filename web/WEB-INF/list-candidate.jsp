@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Candidate</title>
     </head>
     <body>
         <a href="${pageContext.request.contextPath}/AddCandidateServlet" role="button"><button  class="button__add">ADD CANDIDATE</button></a>
@@ -29,8 +29,8 @@
                     <td>${candidates.email}</td>
                     <td>${candidates.adresa}</td>
                     <td>${candidates.cv}</td>
-                    <td><a href="${pageContext.request.contextPath}/EditCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">UPDATE</button></a> </td>
-                    <td><a href="${pageContext.request.contextPath}/DeleteCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__delete">DELETE</button></a> </td>
+                    <td><a href="${pageContext.request.contextPath}/EditCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">EDIT</button></a> </td>
+                    <td><a href="${pageContext.request.contextPath}/DeleteCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">DELETE</button></a> </td>
                 </tr>           
             </c:forEach>                     
         </table>

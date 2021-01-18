@@ -1,0 +1,21 @@
+.table__col {
+    border: 3px solid black;
+    width: 100%;
+    padding:10px;
+    text-align: center;
+    color: red;
+}
+th, td {
+    border: 3px solid black;
+}
+th {
+    padding: 5px;
+    padding-right: 10px;
+}
+.button__update {
+    background-color: grey;
+    color: black;
+    border-radius: 5px;
+    padding: 5px 20px;
+    align-items: center;
+}

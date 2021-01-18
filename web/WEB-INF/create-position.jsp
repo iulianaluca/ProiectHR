@@ -7,42 +7,47 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<style><%@include file = "/WEB-INF/css/create_candidates.css" %></style>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add</title>
-        <link href="style.css" rel="stylesheet">
+        <title>Add position</title>
+       
     </head>
     <body>
-        <p>Add position</p>
+          <h1 class="add__candidate">ADD POSITION</h1>
              <form action="${pageContext.request.contextPath}/AddPositionServlet" method="POST">
+                 <div class="candidate">
 
-                        <label>Nume: </label>
+                         <label>Nume</label></br>
                         <input type="text" name="nume"/></br>
 
-                        <label>Nr persoane: </label>
+                        <label>Numar persoane</label></br>
                         <input type="text" name="nr_persoane"/></br>
 
-                        <label>Department: </label>
+                        <label>Departament </label></br>
                         <input type="text" name="department"/></br>
                         
-                        <label>Cerinte: </label>
+                        <label>Cerinte</label></br>
                         <input type="text" name="cerinte"/></br>
                     
-                        <label>Responsabilitati: </label>
+                        <label>Responsabilitati</label></br>
                         <input type="text" name="responsabilitati"/></br>
                         
-                        <label>Proiect: </label>
+                        <label>Proiect</label></br>
                         <input type="text" name="proiect"/></br>
                         
-                        <label>Open: </label>
+                        <label>Open</label></br>
                         <input type="text" name="opened"/></br>
                         
-                        <label>Closed: </label>
+                        <label>Closed</label></br>
                         <input type="text" name="closed"/></br>
                         <input type="hidden" name="username" value="${pageContext.request.getRemoteUser()}"/></br>
-                        <input type="submit" name="OK" value="OK">
+                         </div>                       
+                      
+                        
+                 <button class="button__add">ADD</button>
              </form>
     </body>
 </html>

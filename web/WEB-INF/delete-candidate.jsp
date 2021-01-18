@@ -12,8 +12,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Delete</title>
-        <link href="style.css" rel="stylesheet">
+        <title>Delete candidate</title>
+       
     </head>
     <body>
         <h1 class="delete__candidate">DELETE CANDIDATE</h1>
