@@ -15,63 +15,61 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
 @Stateless
 public class CandidateBean {
 
     @PersistenceContext
-   private EntityManager em;
+    private EntityManager em;
 
-   public List<CandidateDetails> getAllCandidates() {
+    public List<CandidateDetails> getAllCandidates() {
         LOG.info("getAllCandidates");
-        try {            
-            Query query = em.createQuery("SELECT c FROM Candidate c");          
+        try {
+            Query query = em.createQuery("SELECT c FROM Candidate c");
             List<Candidate> candidates = (List<Candidate>) query.getResultList();
             return copyCandidatesToDetails(candidates);
-            
+
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
     private static final Logger LOG = Logger.getLogger(CandidateBean.class.getName());
-    
-     public void createCandidate(boolean acceptat, String adresa, String email, String nume, String prenume,String cv, boolean relocare, String telefon) {
+
+    public void createCandidate(boolean acceptat, String adresa, String email, String nume, String prenume, String cv, boolean relocare, String telefon) {
         LOG.info("createCandidate");
         try {
-            Candidate candidate=new Candidate(nume,prenume,telefon,email,adresa,cv,relocare,acceptat);
-            em.persist(candidate);                             
+            Candidate candidate = new Candidate(nume, prenume, telefon, email, adresa, cv, relocare, acceptat);
+            em.persist(candidate);
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
-     
-     public void assignCandidateToPosition(Integer idCandidate, Integer idPosition){
-         Position position=em.find(Position.class, idPosition);
-         Candidate candidate=em.find(Candidate.class,idCandidate);
-         candidate.getPositionCollection().add(position);
-         position.getCandidateCollection().add(candidate); 
-     }
-     
-     public void createCandidateComment(String comment, Integer idcandidate) {
+
+    public void assignCandidateToPosition(Integer idCandidate, Integer idPosition) {
+        Position position = em.find(Position.class, idPosition);
+        Candidate candidate = em.find(Candidate.class, idCandidate);
+        candidate.getPositionCollection().add(position);
+        position.getCandidateCollection().add(candidate);
+    }
+
+    public void createCandidateComment(String comment, Integer idcandidate) {
         LOG.info("createCandidateComment");
         try {
-            CandidateComment candidatecomment=new CandidateComment(false, comment);
-            Candidate candidate=em.find(Candidate.class,idcandidate);
+            CandidateComment candidatecomment = new CandidateComment(false, comment);
+            Candidate candidate = em.find(Candidate.class, idcandidate);
             candidate.getCandidate_comment().add(candidatecomment);
             candidatecomment.setCandidate_comm(candidate);
-  
-            
+
             em.persist(candidatecomment);
-            
+
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
-     
-     public void editCandidate(Integer idcandidate,boolean acceptat, String adresa, String email, String nume, String prenume, boolean relocare, String telefon, String cv){
+
+    public void editCandidate(Integer idcandidate, boolean acceptat, String adresa, String email, String nume, String prenume, boolean relocare, String telefon, String cv) {
         LOG.info("editPosition");
-        try{
-            Candidate candidate=em.find(Candidate.class, idcandidate);
+        try {
+            Candidate candidate = em.find(Candidate.class, idcandidate);
             candidate.setNume(nume);
             candidate.setPrenume(prenume);
             candidate.setAcceptat(acceptat);
@@ -79,46 +77,67 @@ public class CandidateBean {
             candidate.setRelocare(relocare);
             candidate.setTelefon(telefon);
             candidate.setCv(cv);
-            
-            
-        }
-        catch (Exception ex) {
+
+        } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
-     
-     public void deleteCandidate(Integer idcandidate){
+
+    public void deleteCandidate(Integer idcandidate) {
         LOG.info("deleteCandidate");
-        try{
-            Candidate candidate=em.find(Candidate.class, idcandidate);
-            Collection<Position> positions=candidate.getPositionCollection();
+        try {
+            Candidate candidate = em.find(Candidate.class, idcandidate);
+            Collection<Position> positions = candidate.getPositionCollection();
             Iterator<Position> i = positions.iterator();
             while (i.hasNext()) {
                 Position position = i.next();
                 position.getCandidateCollection().remove(candidate);
             }
-            
+
             em.remove(candidate);
-            
-        }
-        catch (Exception ex) {
+
+        } catch (Exception ex) {
             throw new EJBException(ex);
         }
     }
-    
+
     private List<CandidateDetails> copyCandidatesToDetails(List<Candidate> candidates) {
-         List<CandidateDetails> detailsList = new ArrayList<>();
+        List<CandidateDetails> detailsList = new ArrayList<>();
         for (Candidate candidate : candidates) {
-            CandidateDetails candidateDetails = new CandidateDetails(candidate.getIdcandidate(),candidate.getAcceptat(),candidate.getAdresa(),candidate.getEmail(), candidate.getNume(), candidate.getPrenume(), candidate.getCv(), candidate.getRelocare(), candidate.getTelefon());
+            CandidateDetails candidateDetails = new CandidateDetails(candidate.getIdcandidate(), candidate.getAcceptat(), candidate.getAdresa(), candidate.getEmail(), candidate.getNume(), candidate.getPrenume(), candidate.getCv(), candidate.getRelocare(), candidate.getTelefon());
             detailsList.add(candidateDetails);
         }
         return detailsList;
     }
-    
-    public CandidateDetails findById(Integer idcandidate){
-        Candidate candidate=em.find(Candidate.class, idcandidate);
-        return new CandidateDetails(candidate.getIdcandidate(),candidate.getAcceptat(), candidate.getAdresa(), candidate.getEmail(), candidate.getNume(), candidate.getPrenume(), candidate.getCv(), candidate.getRelocare(), candidate.getTelefon());
-        
+
+    public CandidateDetails findById(Integer idcandidate) {
+        Candidate candidate = em.find(Candidate.class, idcandidate);
+        return new CandidateDetails(candidate.getIdcandidate(), candidate.getAcceptat(), candidate.getAdresa(), candidate.getEmail(), candidate.getNume(), candidate.getPrenume(), candidate.getCv(), candidate.getRelocare(), candidate.getTelefon());
+
+    }
+
+    public List<CandidateDetails> getCandidateByPosition(Integer idposition) {
+        LOG.info("getAllCandidatesForAPosition");
+        Query query = em.createQuery("SELECT c FROM Candidate c");
+        List<Candidate> candidate = query.getResultList();
+        List<CandidateDetails> cdetails = new ArrayList<>();
+        /*
+        for (User user : users) {
+            UserDetails userDetails = new UserDetails(user.getId(),user.getNume(),user.getPrenume(),user.getTelefon(),user.getMobil(),user.getEmail(),user.getFunctie(),user.getDescriere());
+            detailsList.add(userDetails);
+        }
+        return detailsList;
+         */
+        for (Candidate cand : candidate) {
+            Collection<Position> pos = cand.getPositionCollection();
+            for (Position posi : pos) {
+                if (idposition == posi.getIdposition()) {
+                     cdetails.add(new CandidateDetails(cand.getIdcandidate(),cand.getAcceptat(),cand.getAdresa(),cand.getEmail(),cand.getNume(),cand.getPrenume(),cand.getCv(),cand.getRelocare(),cand.getTelefon()));
+                }
+            }
+        }
+
+        return cdetails;
     }
 
 }

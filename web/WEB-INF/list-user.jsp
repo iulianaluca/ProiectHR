@@ -17,6 +17,7 @@
                      <th>Nume</th>
                      <th>Prenume</th>
                      <th>Telefon</th>
+                     <th>Action</th>
                      
                     
                 </tr>
@@ -26,8 +27,8 @@
                     <td>${users.nume}</td>
                     <td>${users.prenume}</td>
                     <td>${users.telefon}</td>
-                    <td><a href="${pageContext.request.contextPath}/EditUserServlet?id=${users.id}" role="button"><button class="button__update">EDIT</button></a> </td>
-                    <td><a href="${pageContext.request.contextPath}/DeleteUserServlet?id=${users.id}" role="button"><button class="button__update">DELETE</button></a> </td>
+                    <td><a href="${pageContext.request.contextPath}/EditUserServlet?id=${users.id}" role="button"><button class="button__update">EDIT</button></a> 
+                    <a href="${pageContext.request.contextPath}/DeleteUserServlet?id=${users.id}" role="button"><button class="button__update">DELETE</button></a> </td>
                 </tr>           
             </c:forEach>                     
         </table>

@@ -19,6 +19,7 @@
                      <th>Email</th>
                      <th>Adresa</th>
                      <th>CV</th>
+                     <th>Action</th>
                     
                 </tr>
             <c:forEach var="candidates" items="${candidate}" varStatus="status">             
@@ -29,8 +30,8 @@
                     <td>${candidates.email}</td>
                     <td>${candidates.adresa}</td>
                     <td>${candidates.cv}</td>
-                    <td><a href="${pageContext.request.contextPath}/EditCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">EDIT</button></a> </td>
-                    <td><a href="${pageContext.request.contextPath}/DeleteCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">DELETE</button></a> </td>
+                    <td><a href="${pageContext.request.contextPath}/EditCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">EDIT</button></a>
+                    <a href="${pageContext.request.contextPath}/DeleteCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">DELETE</button></a> </td>
                 </tr>           
             </c:forEach>                     
         </table>

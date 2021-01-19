@@ -13,16 +13,17 @@
                 <a href="${pageContext.request.contextPath}/AddPositionServlet" role="button"><button class="button__add"  >ADD POSITION</button> </a>
          <table class="table__col">
                   <tr class="candidates__col">
-                    <td>Nume</td>
-                    <td>Proiect</td>
-                    <td>Departament</td>
-                    <td>Cerinte</td>
-                    <td>Posibilitati</td>
-                    <td>Proiect</td>
-                    <td>Opened</td>
-                    <td>Closed</td>
-                    <td>User Position</td>
-                    <td>Action</td>
+                    <th>Nume</th>
+                    <th>Proiect</th>
+                    <th>Departament</th>
+                    <th>Cerinte</th>
+                    <th>Posibilitati</th>
+                    <th>Proiect</th>
+                    <th>Opened</th>
+                    <th>Closed</th>
+                    <th>User Position</th>
+                    <th>Action</th>
+                    
                   </tr>
                     
             <c:forEach var="positions" items="${position}" varStatus="status">
@@ -36,9 +37,10 @@
                     <td>${positions.opened}</td>
                     <td>${positions.closed}</td>
                     <td>${positions.user_pos}</td>
-                    <td><a href="${pageContext.request.contextPath}/EditPositionServlet?id=${positions.idposition}" role="button"><button class="button__update">EDIT</button></a> </td>
-                    <td><a href="${pageContext.request.contextPath}/DeletePositionServlet?id=${positions.idposition}" role="button"><button class="button__update">DELETE</button></a> </td>
-                    <td><a href="${pageContext.request.contextPath}/AddCandidateToPosition?idposition=${positions.idposition}" role="button"><button class="button__update">ADD CANDIDATE</button></a> </td>
+                    <td><a href="${pageContext.request.contextPath}/EditPositionServlet?id=${positions.idposition}" role="button"><button class="button__update">EDIT</button></a> 
+                    <a href="${pageContext.request.contextPath}/DeletePositionServlet?id=${positions.idposition}" role="button"><button class="button__update">DELETE</button></a> 
+                    <a href="${pageContext.request.contextPath}/AddCandidateToPosition?idposition=${positions.idposition}" role="button"><button class="button__update">ADD CANDIDATE</button></a> 
+                    <a href="${pageContext.request.contextPath}/ViewCandidateByPosition?idposition=${positions.idposition}" role="button"><button class="button__update">VIEW CANDIDATES</button></a></td>
                 </tr>           
             </c:forEach>
         </table>
