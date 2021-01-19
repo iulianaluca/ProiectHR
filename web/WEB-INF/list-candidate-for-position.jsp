@@ -4,13 +4,22 @@
 <style><%@include file = "/WEB-INF/css/positionlist.css" %></style>
 <!DOCTYPE html>
 <html>
+      <style>
+            body{
+                 background-image: url('background.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+
+            }
+        </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Position Candidate</title>
        
     </head>
     <body>
-        <table >
+        <table class="center">
             <tr class="table__col">
                      <th>Nume</th>
                      <th>Prenume</th>

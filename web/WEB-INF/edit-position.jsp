@@ -10,6 +10,15 @@
 <style><%@include file = "/WEB-INF/css/create_candidates.css" %></style>
 <!DOCTYPE html>
 <html>
+      <style>
+            body{
+                background-image: url('form.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+
+            }
+        </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit position</title>

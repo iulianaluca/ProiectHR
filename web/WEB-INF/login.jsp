@@ -33,6 +33,11 @@ form:before {
     background-color: rgba(0,0,0,0.3);
     z-index: -1;
     border-radius: 10px;
+    
+}
+section{
+    background-image: url('imagine.jpg');
+
 }
        
         

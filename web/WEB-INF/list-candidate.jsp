@@ -5,6 +5,15 @@
 <!DOCTYPE html>
 <t:pageTemplate pageTitle="ProiectHR">
 <html>
+      <style>
+            body{
+                background-image: url('background.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+
+            }
+        </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Candidate</title>
@@ -18,6 +27,8 @@
                      <th>Telefon</th>
                      <th>Email</th>
                      <th>Adresa</th>
+                     <th>Acceptat</th>
+                     <th>Relocare</th>
                      <th>CV</th>
                      <th>Action</th>
                     
@@ -29,6 +40,8 @@
                     <td>${candidates.telefon}</td>
                     <td>${candidates.email}</td>
                     <td>${candidates.adresa}</td>
+                     <td>${candidates.acceptat}</td>
+                      <td>${candidates.relocare}</td>
                     <td><a href="http://${candidates.cv}">Vezi aici</a></td>
                     <td><a href="${pageContext.request.contextPath}/EditCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">EDIT</button></a>
                     <a href="${pageContext.request.contextPath}/DeleteCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">DELETE</button></a> </td>

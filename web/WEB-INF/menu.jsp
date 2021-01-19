@@ -1,5 +1,4 @@
 <%@taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
-
 <nav class="navbar navbar-expand-md navbar-danger bg-warning">
   <a class="navbar-brand text-dark" href="${pageContext.request.contextPath}">ProiectHR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

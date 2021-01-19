@@ -5,6 +5,15 @@
 <!DOCTYPE html>
 <t:pageTemplate pageTitle="ProiectHR">
 <html>
+      <style>
+            body{
+                background-image: url('background.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+
+            }
+        </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Positions</title>
@@ -17,10 +26,11 @@
                     <th>Proiect</th>
                     <th>Departament</th>
                     <th>Cerinte</th>
-                    <th>Posibilitati</th>
+                    <th>Responsabilitati</th>
                     <th>Proiect</th>
                     <th>Opened</th>
                     <th>Closed</th>
+                    <th>Nr. persoane</th>
                     <th>User Position</th>
                     <th>Action</th>
                     
@@ -36,6 +46,7 @@
                     <td>${positions.proiect}</td>
                     <td>${positions.opened}</td>
                     <td>${positions.closed}</td>
+                    <td>${positions.nr_persoane}</td>
                     <td>${positions.user_pos}</td>
                     <td><a href="${pageContext.request.contextPath}/EditPositionServlet?id=${positions.idposition}" role="button"><button class="button__update">EDIT</button></a> 
                     <a href="${pageContext.request.contextPath}/DeletePositionServlet?id=${positions.idposition}" role="button"><button class="button__update">DELETE</button></a> 
