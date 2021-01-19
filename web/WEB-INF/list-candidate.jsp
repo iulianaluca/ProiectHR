@@ -29,7 +29,7 @@
                     <td>${candidates.telefon}</td>
                     <td>${candidates.email}</td>
                     <td>${candidates.adresa}</td>
-                    <td>${candidates.cv}</td>
+                    <td><a href="http://${candidates.cv}">Vezi aici</a></td>
                     <td><a href="${pageContext.request.contextPath}/EditCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">EDIT</button></a>
                     <a href="${pageContext.request.contextPath}/DeleteCandidateServlet?idcandidate=${candidates.idcandidate}" role="button"><button class="button__update">DELETE</button></a> </td>
                 </tr>           
