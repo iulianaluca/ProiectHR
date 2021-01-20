@@ -9,14 +9,20 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
-
+            
         }
+        
+        .ceva{
+    font-size: large;
+    color: white;
+    text-align:right;
+}
        
         
     </style>
     <body>
     <c:if test="${pageContext.request.getRemoteUser()!=null}">
-        <p>Salut ${pageContext.request.getRemoteUser()} !</p>
+        <p class="ceva">Salut ${pageContext.request.getRemoteUser()} !</p>
     </c:if>
     </body>
 </t:pageTemplate>
