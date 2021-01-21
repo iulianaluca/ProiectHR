@@ -49,7 +49,11 @@
                     <td>${positions.nr_persoane}</td>
                     <td>${positions.user_pos}</td>
                     <td><a href="${pageContext.request.contextPath}/EditPositionServlet?id=${positions.idposition}" role="button"><button class="button__update">EDIT</button></a> 
-                    <a href="${pageContext.request.contextPath}/DeletePositionServlet?id=${positions.idposition}" role="button"><button class="button__update">DELETE</button></a> 
+                        <c:choose>
+                            <c:when test="${pageContext.request.isUserInRole('DirectorGeneralRole')}">
+                                <a href="${pageContext.request.contextPath}/DeletePositionServlet?id=${positions.idposition}" role="button"><button class="button__update">DELETE</button></a> 
+                            </c:when>
+                        </c:choose>    
                     <a href="${pageContext.request.contextPath}/AddCandidateToPosition?idposition=${positions.idposition}" role="button"><button class="button__update">ADD CANDIDATE</button></a> 
                     <a href="${pageContext.request.contextPath}/ViewCandidateByPosition?idposition=${positions.idposition}" role="button"><button class="button__update">VIEW CANDIDATES</button></a></td>
                 </tr>           
